@@ -1,22 +1,30 @@
+"use client";
+
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useTranslation } from "@/hooks/use-translation";
 
 export function AppHeader() {
+  const { messages } = useTranslation();
+
   return (
-    <header className="border-border/70 bg-card/85 flex flex-col gap-4 rounded-3xl border px-6 py-6 shadow-lg shadow-black/5 backdrop-blur sm:flex-row sm:items-start sm:justify-between">
+    <header className="border-border/70 bg-card/85 flex flex-col gap-5 rounded-3xl border px-5 py-5 shadow-lg shadow-black/5 backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:px-6">
       <div className="max-w-2xl">
-        <p className="text-primary text-xs font-semibold tracking-[0.28em] uppercase">
-          Feature-first starter
+        <p className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">
+          {messages.navigation.eyebrow}
         </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Next.js setup with shadcn/ui, React Query, Zustand, and dark mode.
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+          {messages.navigation.brand}
         </h1>
-        <p className="text-muted-foreground mt-3 text-sm leading-7 sm:text-base">
-          The sample `auth` feature separates UI, services, hooks, schemas, and types while keeping
-          server state and client UI state clearly split.
+        <p className="text-muted-foreground mt-2 text-sm leading-6">
+          {messages.navigation.description}
         </p>
       </div>
 
-      <ThemeToggle />
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <LanguageSwitcher />
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

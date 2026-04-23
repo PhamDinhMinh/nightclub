@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { AppProvider } from "@/components/providers/app-provider";
-import { APP_DESCRIPTION, APP_NAME } from "@/constants/app.constants";
+import { DEFAULT_LOCALE } from "@/lib/i18n/translation-messages";
+import { getTranslations } from "@/lib/i18n/get-translations";
 import "./globals.css";
+
+const defaultMessages = getTranslations(DEFAULT_LOCALE);
 
 export const metadata: Metadata = {
   title: {
-    default: APP_NAME,
-    template: `%s | ${APP_NAME}`,
+    default: defaultMessages.metadata.appName,
+    template: `%s | ${defaultMessages.metadata.appName}`,
   },
-  description: APP_DESCRIPTION,
+  description: defaultMessages.metadata.appDescription,
 };
 
 interface RootLayoutProps {
