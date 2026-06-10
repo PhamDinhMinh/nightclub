@@ -5,6 +5,7 @@ import { AppHeader } from "@/components/app-header";
 import { useTranslation } from "@/hooks/use-translation";
 import { LandingCtaSection } from "@/features/landing/components/landing-cta-section";
 import { LandingFeatureSection } from "@/features/landing/components/landing-feature-section";
+import { LandingFooter } from "@/features/landing/components/landing-footer";
 import { LandingHeroSection } from "@/features/landing/components/landing-hero-section";
 import { LandingProcessSection } from "@/features/landing/components/landing-process-section";
 import { LandingShowcaseSection } from "@/features/landing/components/landing-showcase-section";
@@ -25,6 +26,7 @@ export function LandingPage() {
       <LandingProcessSection content={messages.landing.processSection} />
       <LandingShowcaseSection content={messages.landing.showcaseSection} />
       <LandingCtaSection content={messages.landing.ctaSection} />
+      <LandingFooter content={messages.landing.footer} navigation={messages.navigation} />
     </main>
   );
 }

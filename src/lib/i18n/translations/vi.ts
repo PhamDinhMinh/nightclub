@@ -2,15 +2,23 @@ import type { AppMessages } from "@/types/i18n.types";
 
 export const viMessages: AppMessages = {
   metadata: {
-    appName: "Nightclub",
+    appName: "Lunar Club",
     appDescription:
-      "Mẫu landing page hỗ trợ song ngữ, có section tái sử dụng và dùng lại cấu hình theme hiện có.",
+      "Lunar Club là điểm hẹn nightlife với DJ live, cocktail signature và không gian âm nhạc giàu năng lượng.",
   },
   navigation: {
-    eyebrow: "Hệ thống sáng tạo cho nightlife",
-    brand: "Nightclub Studio",
-    description:
-      "Trải nghiệm landing song ngữ được xây trên chính setup Next.js, Zustand và next-themes hiện tại.",
+    brand: "Lunar Club",
+    navItems: [
+      { label: "Trang chủ", href: "#top" },
+      { label: "Đêm diễn", href: "#events" },
+      { label: "Không gian", href: "#space" },
+      { label: "Menu", href: "#menu" },
+      { label: "Đặt bàn", href: "#booking" },
+    ],
+    primaryAction: {
+      label: "Giữ chỗ tối nay",
+      href: "#booking",
+    },
   },
   controls: {
     languageSwitcherLabel: "Chuyển ngôn ngữ",
@@ -26,124 +34,131 @@ export const viMessages: AppMessages = {
   },
   landing: {
     hero: {
-      eyebrow: "Ra mắt nhanh hơn",
-      title: "Thiết kế, vận hành và quảng bá thương hiệu nightlife bằng một hệ thống mạch lạc.",
+      eyebrow: "Mở cửa từ 20:00 mỗi ngày",
+      title: "Một đêm rực nhịp bass, ánh đèn và cocktail signature giữa trung tâm thành phố.",
       description:
-        "Nightclub Studio giúp đội ngũ venue biến chiến lược thành chiến dịch, sự kiện và trải nghiệm khách hàng mà vẫn giữ được sự đồng nhất hình ảnh.",
-      announcement: "Tiếng Anh và tiếng Việt dùng chung một cấu trúc landing page.",
+        "Lunar Club mang đến line-up DJ chọn lọc, sân khấu ánh sáng sống động và lounge riêng cho những nhóm muốn tận hưởng đêm theo cách chỉn chu hơn.",
+      announcement: "Thứ Sáu này: Neon Fever với resident DJ KAI và set guest lúc 23:30.",
       primaryAction: {
-        label: "Xem dịch vụ",
-        href: "#services",
+        label: "Đặt bàn VIP",
+        href: "#booking",
       },
       secondaryAction: {
-        label: "Xem quy trình",
-        href: "#workflow",
+        label: "Xem lịch diễn",
+        href: "#events",
       },
-      highlights: [
-        "Section tái sử dụng",
-        "Giao diện tương thích theme",
-        "Nội dung quản lý từ file dịch",
-      ],
+      highlights: ["DJ live hằng đêm", "Cocktail signature", "Khu VIP riêng tư"],
       metrics: [
         {
-          value: "48h",
-          label: "Tốc độ ra chiến dịch",
-          description: "Đi từ brief đến asset launch bằng một pipeline sáng tạo rõ ràng.",
+          value: "20:00",
+          label: "Mở cửa",
+          description: "Đón khách sớm cho dinner drink, group meetup và warm-up set.",
         },
         {
-          value: "2",
-          label: "Ngôn ngữ hỗ trợ",
-          description: "Chuyển giữa tiếng Anh và tiếng Việt mà không cần nhân đôi component.",
+          value: "4",
+          label: "Khu trải nghiệm",
+          description: "Main floor, neon bar, private lounge và balcony nhìn xuống sân khấu.",
         },
         {
-          value: "1",
-          label: "Nguồn nội dung thống nhất",
-          description:
-            "Toàn bộ copy landing được quản lý trong file translation thay vì component.",
+          value: "120+",
+          label: "Món đồ uống",
+          description: "Từ classic cocktail, mocktail đến bottle service cho bàn nhóm.",
         },
       ],
     },
     featureSection: {
-      eyebrow: "Dịch vụ",
-      title: "Các section tái sử dụng cho landing page nightlife hiện đại.",
+      eyebrow: "Trải nghiệm",
+      title: "Một venue được thiết kế cho những đêm muốn đi xa hơn một ly drink.",
       description:
-        "Mỗi section được tách thành component rõ ràng để landing page mở rộng dễ dàng mà không trộn nội dung, layout và logic tương tác.",
+        "Từ âm thanh, ánh sáng đến nhịp phục vụ tại bàn, mọi chi tiết đều được giữ gọn để bạn có thể bước vào và tận hưởng ngay.",
       items: [
         {
-          title: "Định vị thương hiệu",
+          title: "Main floor bùng nổ",
           description:
-            "Xây dựng hướng sáng tạo rõ ràng cho campaign ra mắt, seasonal drop và chuỗi event resident.",
+            "Hệ thống âm thanh công suất lớn, LED wall và ánh sáng chuyển động theo từng set nhạc.",
         },
         {
-          title: "Hệ thống campaign",
+          title: "Neon cocktail bar",
           description:
-            "Biến ý tưởng quảng bá thành format tái sử dụng cho social content, web touchpoint và thông điệp tại venue.",
+            "Menu signature cân bằng giữa vị mạnh, hương trái cây nhiệt đới và những phiên bản low-alcohol dễ uống.",
         },
         {
-          title: "Thiết kế trải nghiệm khách",
+          title: "Private lounge",
           description:
-            "Kết nối chi tiết digital và physical để câu chuyện thương hiệu luôn có chủ đích.",
+            "Không gian riêng cho sinh nhật, after-party và nhóm khách muốn có host phục vụ sát bàn.",
         },
       ],
     },
     processSection: {
-      eyebrow: "Quy trình",
-      title: "Quy trình gọn, ưu tiên cả tốc độ lẫn tính nhất quán.",
+      eyebrow: "Đêm diễn",
+      title: "Line-up mỗi tuần luôn có điểm nhấn riêng.",
       description:
-        "Bố cục landing cho thấy cách chiến lược, sản xuất và rollout luôn đi cùng nhau mà không làm phức tạp state phía client.",
+        "Lunar Club xoay lịch theo từng mood để bạn chọn đúng đêm: hip-hop, house, open format hoặc showcase khách mời.",
       items: [
         {
-          title: "Làm rõ brief",
+          title: "Thứ Năm - RnB Room",
           description:
-            "Chốt audience, mục tiêu sự kiện và giới hạn sáng tạo trước khi bước vào sản xuất.",
+            "Không khí gần gũi, nhịp chậm hơn, phù hợp để bắt đầu cuối tuần bằng cocktail và vocal set.",
         },
         {
-          title: "Xây hệ thống",
-          description:
-            "Chuyển định hướng thành asset tái sử dụng, framework nội dung và layout đúng brand.",
+          title: "Thứ Sáu - Neon Fever",
+          description: "Đêm đông nhất tuần với EDM, bass house và guest DJ xuất hiện sau 23:30.",
         },
         {
-          title: "Ra mắt chắc chắn",
+          title: "Thứ Bảy - After Midnight",
           description:
-            "Triển khai campaign với thông điệp song ngữ và giao diện đã sẵn sàng cho dark/light theme.",
+            "Open format kéo dài đến khuya, dành cho nhóm đặt bàn và những ai thích năng lượng cao.",
         },
       ],
     },
     showcaseSection: {
-      eyebrow: "Vì sao setup này hợp lý",
-      title: "Landing page tận dụng đúng phần đang có thay vì dựng lại từ đầu.",
+      eyebrow: "Không gian",
+      title: "Ánh sáng đẹp, âm thanh dày, góc ngồi đủ riêng tư.",
       description:
-        "Theme provider, query provider và UI store hiện tại vẫn được giữ nguyên. Chỉ các phần còn thiếu cho landing và i18n mới được thêm vào.",
+        "Venue được chia thành nhiều lớp trải nghiệm để nhóm nhỏ, couple hay bàn đông đều có vị trí hợp mood.",
       items: [
         {
-          title: "Giữ nguyên hỗ trợ dark và light theme",
+          title: "Balcony view",
           description:
-            "Landing UI kế thừa token hiện tại nên hai chế độ vẫn đồng nhất về trải nghiệm thị giác.",
+            "Nhìn trọn main floor từ tầng lửng, hợp cho nhóm muốn quan sát sân khấu mà vẫn thoải mái trò chuyện.",
         },
         {
-          title: "Mở rộng store thay vì tạo bản sao",
+          title: "Bottle service",
           description:
-            "Locale được lưu trong chính UI store hiện có để giải pháp luôn gọn và đúng phạm vi.",
+            "Host chuẩn bị bàn, mixer, đá và garnish để nhóm có trải nghiệm liền mạch từ lúc đến.",
         },
         {
-          title: "Section chạy hoàn toàn bằng translation",
+          title: "Photo corner",
           description:
-            "Mọi chuỗi hiển thị trên landing đều đến từ dictionary để dễ bảo trì và thêm locale mới.",
+            "Các mảng đèn neon và gương chrome tạo khung hình rõ chất club mà không cần setup thêm.",
         },
       ],
     },
     ctaSection: {
-      title: "Sẵn sàng biến starter này thành marketing site chạy production?",
+      title: "Tối nay đi đâu? Giữ trước một bàn ở Lunar Club.",
       description:
-        "Cấu trúc hiện tại đã đủ chỗ cho thêm locale, kết nối CMS và mở rộng landing section mà không phải đổi kiến trúc theme hay provider.",
+        "Đội host sẽ xác nhận số lượng khách, khu vực ngồi và gợi ý combo đồ uống phù hợp với mood của nhóm.",
       primaryAction: {
-        label: "Bắt đầu từ nền tảng này",
-        href: "#top",
+        label: "Đặt bàn ngay",
+        href: "#booking",
       },
       secondaryAction: {
-        label: "Xem lại bố cục section",
-        href: "#services",
+        label: "Xem menu",
+        href: "#menu",
       },
+    },
+    footer: {
+      tagline:
+        "Điểm hẹn nightlife tại Quảng Xương với âm nhạc, ánh sáng và những buổi tối đáng nhớ.",
+      addressLabel: "Địa chỉ",
+      address: "Phạm Tiến hộp đêm, Ngọc Nhị, Quảng Xương, Thanh Hóa, Việt Nam",
+      hoursLabel: "Giờ mở cửa",
+      hours: "20:00 - 02:00, hằng ngày",
+      contactLabel: "Liên hệ",
+      contact: "Hotline đặt bàn: 0345864328",
+      quickLinksLabel: "Đi nhanh",
+      mapTitle: "Bản đồ Lunar Club",
+      copyright: "Lunar Club. All rights reserved.",
     },
   },
 };

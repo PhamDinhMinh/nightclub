@@ -2,15 +2,23 @@ import type { AppMessages } from "@/types/i18n.types";
 
 export const enMessages: AppMessages = {
   metadata: {
-    appName: "Nightclub",
+    appName: "Lunar Club",
     appDescription:
-      "Landing page starter with bilingual support, reusable sections, and existing theme integration.",
+      "Lunar Club is a nightlife venue with live DJs, signature cocktails, and high-energy music rooms.",
   },
   navigation: {
-    eyebrow: "Creative nightlife systems",
-    brand: "Nightclub Studio",
-    description:
-      "A bilingual landing experience built on the existing Next.js, Zustand, and next-themes setup.",
+    brand: "Lunar Club",
+    navItems: [
+      { label: "Home", href: "#top" },
+      { label: "Events", href: "#events" },
+      { label: "Space", href: "#space" },
+      { label: "Menu", href: "#menu" },
+      { label: "Booking", href: "#booking" },
+    ],
+    primaryAction: {
+      label: "Reserve tonight",
+      href: "#booking",
+    },
   },
   controls: {
     languageSwitcherLabel: "Language switcher",
@@ -26,123 +34,131 @@ export const enMessages: AppMessages = {
   },
   landing: {
     hero: {
-      eyebrow: "Launch faster",
-      title: "Design, operate, and market nightlife brands from one polished system.",
+      eyebrow: "Open daily from 8 PM",
+      title: "A night of bass, light, and signature cocktails in the heart of the city.",
       description:
-        "Nightclub Studio helps venue teams turn strategy into campaigns, events, and guest experiences without losing visual consistency.",
-      announcement: "English and Vietnamese are available with the same landing structure.",
+        "Lunar Club brings curated DJ lineups, immersive stage lighting, and private lounges for groups that want a sharper way to spend the night.",
+      announcement: "This Friday: Neon Fever with resident DJ KAI and a guest set at 11:30 PM.",
       primaryAction: {
-        label: "Explore services",
-        href: "#services",
+        label: "Book a VIP table",
+        href: "#booking",
       },
       secondaryAction: {
-        label: "See the workflow",
-        href: "#workflow",
+        label: "See events",
+        href: "#events",
       },
-      highlights: [
-        "Reusable landing sections",
-        "Theme-aware interface",
-        "Translation-first content",
-      ],
+      highlights: ["Live DJs nightly", "Signature cocktails", "Private VIP zones"],
       metrics: [
         {
-          value: "48h",
-          label: "Campaign turnaround",
-          description: "Move from brief to launch assets with a predictable creative pipeline.",
+          value: "8 PM",
+          label: "Doors open",
+          description: "Arrive early for dinner drinks, group meetups, and warm-up sets.",
         },
         {
-          value: "2",
-          label: "Supported languages",
-          description: "Switch between English and Vietnamese without duplicating components.",
+          value: "4",
+          label: "Experience zones",
+          description: "Main floor, neon bar, private lounge, and a balcony above the stage.",
         },
         {
-          value: "1",
-          label: "Unified source of truth",
-          description: "All landing copy is maintained in translation files instead of components.",
+          value: "120+",
+          label: "Drinks",
+          description: "Classic cocktails, mocktails, and bottle service for group tables.",
         },
       ],
     },
     featureSection: {
-      eyebrow: "Services",
-      title: "Reusable sections for a modern nightlife landing page.",
+      eyebrow: "Experience",
+      title: "A venue designed for nights that go beyond one drink.",
       description:
-        "Each section is split into focused components so the page can grow without mixing copy, layout, and interactions.",
+        "From sound and lighting to table service rhythm, every detail is tuned so guests can step in and enjoy the night immediately.",
       items: [
         {
-          title: "Brand positioning",
+          title: "High-energy main floor",
           description:
-            "Shape a clear creative direction for launches, seasonal drops, and resident event series.",
+            "A powerful sound system, LED wall, and lighting that shifts with every DJ set.",
         },
         {
-          title: "Campaign systems",
+          title: "Neon cocktail bar",
           description:
-            "Turn promotional ideas into reusable formats across social content, web touchpoints, and on-site messaging.",
+            "A signature menu balancing strong classics, tropical notes, and easy low-alcohol pours.",
         },
         {
-          title: "Guest experience design",
+          title: "Private lounge",
           description:
-            "Coordinate digital and physical details so the venue story feels intentional at every touchpoint.",
+            "A reserved space for birthdays, after-parties, and groups that want dedicated table hosts.",
         },
       ],
     },
     processSection: {
-      eyebrow: "Workflow",
-      title: "A lean process that respects both speed and consistency.",
+      eyebrow: "Events",
+      title: "Every weekly lineup has its own mood.",
       description:
-        "The landing layout highlights how strategy, production, and rollout stay aligned without adding extra client-side complexity.",
+        "Lunar Club rotates nights across hip-hop, house, open format, and guest showcases so you can pick the right energy.",
       items: [
         {
-          title: "Clarify the brief",
+          title: "Thursday - RnB Room",
           description:
-            "Define audience, event intent, and creative constraints before production starts.",
+            "A warmer room with slower grooves, cocktails, and vocal sets to ease into the weekend.",
         },
         {
-          title: "Build the system",
-          description:
-            "Translate the direction into reusable assets, copy frameworks, and on-brand layouts.",
+          title: "Friday - Neon Fever",
+          description: "The busiest night of the week with EDM, bass house, and guest DJs after 11:30 PM.",
         },
         {
-          title: "Launch with confidence",
+          title: "Saturday - After Midnight",
           description:
-            "Ship campaigns with bilingual messaging and theme-aware presentation already in place.",
+            "Open format until late, made for table groups and anyone chasing a high-energy room.",
         },
       ],
     },
     showcaseSection: {
-      eyebrow: "Why this setup works",
-      title: "The page reuses what the project already had instead of starting over.",
+      eyebrow: "Space",
+      title: "Beautiful light, deep sound, and seating that still feels private.",
       description:
-        "The existing theme provider, query provider, and UI store remain in place. Only the missing landing and i18n pieces were added.",
+        "The venue is divided into layered zones so small groups, couples, and larger tables can find the right mood.",
       items: [
         {
-          title: "Existing dark and light theme support",
+          title: "Balcony view",
           description:
-            "The landing UI inherits the current token-based styling so both modes stay visually consistent.",
+            "Take in the full main floor from above while keeping enough distance for conversation.",
         },
         {
-          title: "Store extension instead of duplication",
+          title: "Bottle service",
           description:
-            "Locale selection lives in the current UI store, which keeps the implementation lightweight.",
+            "Hosts prepare the table, mixers, ice, and garnish so your group can stay in the moment.",
         },
         {
-          title: "Translation-driven sections",
+          title: "Photo corner",
           description:
-            "Every visible string on the landing experience comes from locale dictionaries for easier maintenance.",
+            "Neon panels and chrome mirrors create a strong club look without extra setup.",
         },
       ],
     },
     ctaSection: {
-      title: "Ready to turn the starter into a production-ready marketing site?",
+      title: "Where are you going tonight? Hold a table at Lunar Club.",
       description:
-        "The current structure is prepared for more locales, CMS integration, and additional landing sections without changing the theme or provider architecture.",
+        "Our host team will confirm guest count, seating zone, and the drink set that fits your group mood.",
       primaryAction: {
-        label: "Start with this foundation",
-        href: "#top",
+        label: "Book a table",
+        href: "#booking",
       },
       secondaryAction: {
-        label: "Review the section layout",
-        href: "#services",
+        label: "View menu",
+        href: "#menu",
       },
+    },
+    footer: {
+      tagline:
+        "A nightlife stop in Quang Xuong for music, lighting, cocktails, and memorable late nights.",
+      addressLabel: "Address",
+      address: "Pham Tien nightclub, Ngoc Nhi, Quang Xuong, Thanh Hoa, Vietnam",
+      hoursLabel: "Opening hours",
+      hours: "8 PM - 2 AM, daily",
+      contactLabel: "Contact",
+      contact: "Table hotline: 0345864328",
+      quickLinksLabel: "Quick links",
+      mapTitle: "Lunar Club map",
+      copyright: "Lunar Club. All rights reserved.",
     },
   },
 };

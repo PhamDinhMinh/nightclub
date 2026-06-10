@@ -8,12 +8,18 @@ interface LandingShowcaseSectionProps {
 }
 
 const showcaseIcons = [MoonStar, Store, Languages];
+const showcaseImages = [
+  "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=85",
+  "https://images.unsplash.com/photo-1605270012917-bf157c5a9541?auto=format&fit=crop&w=900&q=85",
+  "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=900&q=85",
+];
 
 export function LandingShowcaseSection({ content }: LandingShowcaseSectionProps) {
   return (
     <LandingSection
       description={content.description}
       eyebrow={content.eyebrow}
+      id="menu"
       title={content.title}
     >
       <div className="grid gap-4 xl:grid-cols-3">
@@ -22,15 +28,21 @@ export function LandingShowcaseSection({ content }: LandingShowcaseSectionProps)
 
           return (
             <Card
-              className="border-border/70 from-card via-card to-secondary/40 bg-gradient-to-br shadow-lg shadow-black/5"
+              className="border-border/70 bg-card overflow-hidden shadow-lg shadow-black/5"
               key={item.title}
             >
-              <CardContent className="p-6">
-                <div className="bg-accent/18 text-accent-foreground inline-flex rounded-2xl p-3">
-                  <Icon className="size-5" />
+              <CardContent
+                className="relative flex min-h-80 items-end overflow-hidden bg-cover bg-center p-0"
+                style={{ backgroundImage: `url(${showcaseImages[index]})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+                <div className="relative p-6 text-white">
+                  <div className="inline-flex rounded-2xl bg-white/15 p-3 text-white backdrop-blur">
+                    <Icon className="size-5" />
+                  </div>
+                  <h3 className="mt-5 text-xl font-semibold tracking-tight">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/76">{item.description}</p>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold tracking-tight">{item.title}</h3>
-                <p className="text-muted-foreground mt-3 text-sm leading-7">{item.description}</p>
               </CardContent>
             </Card>
           );

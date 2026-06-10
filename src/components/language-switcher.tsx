@@ -21,14 +21,15 @@ export function LanguageSwitcher() {
         return (
           <Button
             aria-pressed={isActive}
-            className="rounded-full"
+            aria-label={messages.controls.languages[localeItem]}
+            className="h-8 rounded-full px-3 text-xs"
             key={localeItem}
             onClick={() => setLocale(localeItem)}
             size="sm"
             type="button"
             variant={isActive ? "default" : "ghost"}
           >
-            {messages.controls.languages[localeItem]}
+            {localeItem.toUpperCase()}
           </Button>
         );
       })}

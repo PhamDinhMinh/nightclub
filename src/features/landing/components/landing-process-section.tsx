@@ -14,7 +14,7 @@ export function LandingProcessSection({ content }: LandingProcessSectionProps) {
     <LandingSection
       description={content.description}
       eyebrow={content.eyebrow}
-      id="workflow"
+      id="events"
       title={content.title}
     >
       <div className="grid gap-4 md:grid-cols-3">

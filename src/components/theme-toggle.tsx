@@ -16,17 +16,12 @@ export function ThemeToggle() {
     setTheme(nextTheme);
   };
 
-  const themeLabel =
-    mounted && resolvedTheme === "dark"
-      ? messages.controls.themes.dark
-      : messages.controls.themes.light;
-
   return (
     <Button
       aria-label={messages.controls.themeToggleLabel}
-      className="w-full sm:w-auto"
+      className="size-9 rounded-full p-0"
       onClick={toggleTheme}
-      size="sm"
+      size="icon"
       type="button"
       variant="outline"
     >
@@ -35,7 +30,6 @@ export function ThemeToggle() {
       ) : (
         <SunMedium className="size-4" />
       )}
-      <span>{themeLabel}</span>
     </Button>
   );
 }

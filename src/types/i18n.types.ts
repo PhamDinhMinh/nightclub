@@ -5,6 +5,11 @@ export interface TranslationAction {
   href: string;
 }
 
+export interface TranslationNavItem {
+  label: string;
+  href: string;
+}
+
 export interface TranslationCardItem {
   title: string;
   description: string;
@@ -28,9 +33,9 @@ export interface AppMessages {
     appDescription: string;
   };
   navigation: {
-    eyebrow: string;
     brand: string;
-    description: string;
+    navItems: TranslationNavItem[];
+    primaryAction: TranslationAction;
   };
   controls: {
     languageSwitcherLabel: string;
@@ -63,6 +68,18 @@ export interface AppMessages {
       description: string;
       primaryAction: TranslationAction;
       secondaryAction: TranslationAction;
+    };
+    footer: {
+      tagline: string;
+      addressLabel: string;
+      address: string;
+      hoursLabel: string;
+      hours: string;
+      contactLabel: string;
+      contact: string;
+      quickLinksLabel: string;
+      mapTitle: string;
+      copyright: string;
     };
   };
 }
