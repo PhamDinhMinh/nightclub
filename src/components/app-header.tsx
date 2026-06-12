@@ -16,7 +16,7 @@ interface AppHeaderProps {
 }
 
 const isAppView = (view: string): view is AppView => {
-  return ["home", "events", "gallery", "booking"].includes(view);
+  return ["home", "events", "gallery", "booking", "feedback"].includes(view);
 };
 
 export const AppHeader = ({ activeView, onNavigate }: AppHeaderProps) => {

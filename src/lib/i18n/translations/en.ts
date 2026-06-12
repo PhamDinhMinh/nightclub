@@ -13,6 +13,7 @@ export const enMessages: AppMessages = {
       { label: "Events", href: "events" },
       { label: "Gallery", href: "gallery" },
       { label: "VIP/Booking", href: "booking" },
+      { label: "Feedback", href: "feedback" },
     ],
     primaryAction: {
       label: "Book Now",
@@ -151,6 +152,57 @@ export const enMessages: AppMessages = {
         "21+ ID required for all guests in reservation.",
         "Minimum spend applies to all table bookings.",
       ],
+    },
+    feedback: {
+      eyebrow: "Direct Contact",
+      title: "Connect with our",
+      highlightedTitle: "Space",
+      titleSuffix: "",
+      description:
+        "Experience elevated nightlife and premium sound at PhamTienClub. Our team is always ready to support your special requests.",
+      contactCards: [
+        {
+          title: "Address",
+          lines: ["Pham Tien nightclub, Ngoc Nhi", "Quang Xuong, Thanh Hoa, Vietnam"],
+        },
+        {
+          title: "VIP Hotline",
+          lines: ["0386653135"],
+        },
+        {
+          title: "Email",
+          lines: ["phamminh030801@gmail.com"],
+        },
+      ],
+      socialLabels: ["Share", "Website", "Photos"],
+      formTitle: "Send Feedback",
+      formDescription:
+        "Your voice helps us shape more polished and memorable nights for every guest.",
+      fields: {
+        name: "Full name (optional)",
+        email: "Email (optional)",
+        subject: "Subject",
+        message: "Your message",
+      },
+      placeholders: {
+        name: "Alex Nguyen",
+        email: "email@example.com if you want a reply",
+        message: "Tell us how the night felt...",
+      },
+      subjects: [
+        { value: "service-feedback", label: "Service feedback" },
+        { value: "vip-booking", label: "VIP service & booking" },
+        { value: "event-private-party", label: "Events & private party" },
+        { value: "other", label: "Other issue" },
+      ],
+      submit: "Send now",
+      sending: "Sending...",
+      success: "Received!",
+      error: "Could not send yet. Please try again or contact the hotline.",
+      mapBadge: "Find us in Quang Xuong",
+      mapTitle: "A destination for",
+      mapHighlightedTitle: "Elevated Nights",
+      mapImageAlt: "Night city atmosphere with pink and cyan neon lights.",
     },
   },
   landing: {

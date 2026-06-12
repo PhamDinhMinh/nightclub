@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AppHeader } from "@/components/app-header";
 import { BookingScreen } from "@/features/landing/components/booking-screen";
 import { EventsScreen } from "@/features/landing/components/events-screen";
+import { FeedbackScreen } from "@/features/landing/components/feedback-screen";
 import { GalleryScreen } from "@/features/landing/components/gallery-screen";
 import { useTranslation } from "@/hooks/use-translation";
 import { LandingCtaSection } from "@/features/landing/components/landing-cta-section";
@@ -13,7 +14,7 @@ import { LandingProcessSection } from "@/features/landing/components/landing-pro
 import { LandingShowcaseSection } from "@/features/landing/components/landing-showcase-section";
 import type { AppView } from "@/types/navigation.types";
 
-export function LandingPage() {
+export const LandingPage = () => {
   const { locale, messages } = useTranslation();
   const [activeView, setActiveView] = useState<AppView>("home");
 
@@ -34,6 +35,10 @@ export function LandingPage() {
       return <BookingScreen messages={messages} />;
     }
 
+    if (activeView === "feedback") {
+      return <FeedbackScreen messages={messages} />;
+    }
+
     return (
       <>
         <LandingHeroSection content={messages.landing.hero} />
@@ -52,4 +57,4 @@ export function LandingPage() {
       {renderActiveView()}
     </div>
   );
-}
+};

@@ -116,6 +116,43 @@ export interface AppMessages {
       policiesTitle: string;
       policies: string[];
     };
+    feedback: {
+      eyebrow: string;
+      title: string;
+      highlightedTitle: string;
+      titleSuffix: string;
+      description: string;
+      contactCards: Array<{
+        title: string;
+        lines: string[];
+      }>;
+      socialLabels: string[];
+      formTitle: string;
+      formDescription: string;
+      fields: {
+        name: string;
+        email: string;
+        subject: string;
+        message: string;
+      };
+      placeholders: {
+        name: string;
+        email: string;
+        message: string;
+      };
+      subjects: Array<{
+        value: string;
+        label: string;
+      }>;
+      submit: string;
+      sending: string;
+      success: string;
+      error: string;
+      mapBadge: string;
+      mapTitle: string;
+      mapHighlightedTitle: string;
+      mapImageAlt: string;
+    };
   };
   landing: {
     hero: TranslationSectionContent & {

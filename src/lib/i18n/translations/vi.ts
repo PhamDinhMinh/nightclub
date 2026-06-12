@@ -13,6 +13,7 @@ export const viMessages: AppMessages = {
       { label: "Sự kiện", href: "events" },
       { label: "Thư viện ảnh", href: "gallery" },
       { label: "VIP/Đặt bàn", href: "booking" },
+      { label: "Phản hồi", href: "feedback" },
     ],
     primaryAction: {
       label: "Đặt ngay",
@@ -152,6 +153,57 @@ export const viMessages: AppMessages = {
         "Tất cả khách trong bàn cần đủ 21+ và có giấy tờ tùy thân.",
         "Mức chi tiêu tối thiểu áp dụng cho mọi đặt bàn.",
       ],
+    },
+    feedback: {
+      eyebrow: "Liên hệ trực tiếp",
+      title: "Kết nối với",
+      highlightedTitle: "Không gian",
+      titleSuffix: "của chúng tôi.",
+      description:
+        "Trải nghiệm sự xa hoa và âm nhạc đỉnh cao tại PhamTienClub. Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ các yêu cầu đặc biệt của bạn.",
+      contactCards: [
+        {
+          title: "Địa chỉ",
+          lines: ["Phạm Tiến hộp đêm, Ngọc Nhị", "Quảng Xương, Thanh Hoa, Vietnam"],
+        },
+        {
+          title: "Hotline VIP",
+          lines: ["0386653135"],
+        },
+        {
+          title: "Email",
+          lines: ["phamminh030801@gmail.com"],
+        },
+      ],
+      socialLabels: ["Chia sẻ", "Website", "Ảnh"],
+      formTitle: "Gửi Phản Hồi",
+      formDescription:
+        "Ý kiến của bạn là chìa khóa để chúng tôi kiến tạo những trải nghiệm hoàn mỹ hơn.",
+      fields: {
+        name: "Họ và tên (không bắt buộc)",
+        email: "Email (không bắt buộc)",
+        subject: "Chủ đề",
+        message: "Lời nhắn của bạn",
+      },
+      placeholders: {
+        name: "Nguyễn Văn A",
+        email: "email@example.com nếu muốn nhận phản hồi",
+        message: "Hãy cho chúng tôi biết cảm nhận của bạn...",
+      },
+      subjects: [
+        { value: "service-feedback", label: "Phản hồi dịch vụ" },
+        { value: "vip-booking", label: "Dịch vụ VIP & Đặt chỗ" },
+        { value: "event-private-party", label: "Sự kiện & Private Party" },
+        { value: "other", label: "Vấn đề khác" },
+      ],
+      submit: "Gửi ngay",
+      sending: "Đang gửi...",
+      success: "Đã nhận!",
+      error: "Chưa gửi được. Vui lòng thử lại hoặc liên hệ hotline.",
+      mapBadge: "Tìm chúng tôi tại Quảng Xương",
+      mapTitle: "Điểm đến của",
+      mapHighlightedTitle: "Giới Thượng Lưu",
+      mapImageAlt: "Khung cảnh đô thị ban đêm với ánh neon hồng và xanh cyan.",
     },
   },
   landing: {
