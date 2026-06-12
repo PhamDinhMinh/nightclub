@@ -1,50 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --radius: 0.875rem;
-  --background: oklch(0.974 0.008 230);
-  --foreground: oklch(0.18 0.018 248);
-  --card: oklch(0.995 0 0);
-  --card-foreground: oklch(0.18 0.018 248);
-  --popover: oklch(0.995 0 0);
-  --popover-foreground: oklch(0.18 0.018 248);
-  --primary: oklch(0.66 0.16 185);
-  --primary-foreground: oklch(0.13 0.02 240);
-  --secondary: oklch(0.93 0.018 248);
-  --secondary-foreground: oklch(0.22 0.024 248);
-  --muted: oklch(0.94 0.012 248);
-  --muted-foreground: oklch(0.46 0.025 248);
-  --accent: oklch(0.68 0.2 338);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.624 0.197 28.8);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.86 0.018 230);
-  --input: oklch(0.86 0.018 230);
-  --ring: oklch(0.66 0.16 185);
+  --radius: 0.5rem;
+  --background: #f8f9fa;
+  --foreground: #1a1c1e;
+  --card: #ffffff;
+  --card-foreground: #1a1c1e;
+  --popover: #ffffff;
+  --popover-foreground: #1a1c1e;
+  --primary: #ff007a;
+  --primary-foreground: #ffffff;
+  --secondary: #00686f;
+  --secondary-foreground: #ffffff;
+  --muted: #f3f4f5;
+  --muted-foreground: #43474e;
+  --accent: #ff4b89;
+  --accent-foreground: #3f0019;
+  --destructive: #ba1a1a;
+  --destructive-foreground: #ffffff;
+  --border: #e2e3e4;
+  --input: #e2e3e4;
+  --ring: #ff007a;
+  --media-foreground: #1a1c1e;
+  --media-muted: #43474e;
 }
 
 .dark {
-  --background: oklch(0.145 0.026 260);
-  --foreground: oklch(0.97 0.01 230);
-  --card: oklch(0.205 0.032 260);
-  --card-foreground: oklch(0.97 0.01 230);
-  --popover: oklch(0.205 0.032 260);
-  --popover-foreground: oklch(0.97 0.01 230);
-  --primary: oklch(0.74 0.17 185);
-  --primary-foreground: oklch(0.12 0.025 260);
-  --secondary: oklch(0.27 0.034 260);
-  --secondary-foreground: oklch(0.96 0.01 230);
-  --muted: oklch(0.27 0.034 260);
-  --muted-foreground: oklch(0.76 0.025 235);
-  --accent: oklch(0.7 0.22 338);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.67 0.196 27.4);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.35 0.036 260);
-  --input: oklch(0.35 0.036 260);
-  --ring: oklch(0.74 0.17 185);
+  --background: #050505;
+  --foreground: #e5e2e1;
+  --card: #201f1f;
+  --card-foreground: #e5e2e1;
+  --popover: #201f1f;
+  --popover-foreground: #e5e2e1;
+  --primary: #ffb1c3;
+  --primary-foreground: #66002c;
+  --secondary: #d3fbff;
+  --secondary-foreground: #00363a;
+  --muted: #2a2a2a;
+  --muted-foreground: #e5bcc4;
+  --accent: #ff4b89;
+  --accent-foreground: #590026;
+  --destructive: #ffb4ab;
+  --destructive-foreground: #690005;
+  --border: #5c3f45;
+  --input: #5c3f45;
+  --ring: #ffb1c3;
+  --media-foreground: #ffffff;
+  --media-muted: rgb(255 255 255 / 0.75);
 }
 
 @theme inline {
@@ -84,8 +89,45 @@
 
   body {
     @apply bg-background text-foreground min-h-screen antialiased;
-    background-image:
-      linear-gradient(135deg, oklch(0.66 0.16 185 / 0.12), transparent 36%),
-      linear-gradient(225deg, oklch(0.68 0.2 338 / 0.14), transparent 32%);
+    font-family: "Hanken Grotesk", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Sora", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Sora", sans-serif;
+  }
+
+  .glass-panel {
+    @apply border-primary/10 bg-card/70 dark:bg-card/60 border backdrop-blur-xl;
+  }
+
+  .glass-card {
+    @apply border-primary/10 bg-card/95 dark:bg-card/60 border shadow-sm backdrop-blur-xl dark:shadow-none;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 24px color-mix(in srgb, var(--primary) 45%, transparent);
+  }
+
+  .neon-glow-primary {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 42%, transparent);
+  }
+
+  .neon-glow-secondary {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 32%, transparent);
+  }
+
+  .gallery-mask {
+    mask-image: linear-gradient(to bottom, black 80%, transparent);
   }
 }

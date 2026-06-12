@@ -1,94 +1,67 @@
-import { ArrowRight, Languages, Palette, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import type { AppMessages } from "@/types/i18n.types";
 
 interface LandingHeroSectionProps {
   content: AppMessages["landing"]["hero"];
 }
 
-const highlightIcons = [Sparkles, Languages, Palette];
 const heroImageUrl =
-  "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1400&q=85";
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAt3PC_Rn-flNlXnjIPIrECYOuQZ8RaazS9dPpwkFEbRuY26eSJYWcUnKRjXd3ILpBsE-zhR1cesdOU7eXDelUmzYJxESe21SotUIVdkepfdtUjgNmEjErryROpFqB-IyygZTNetVCxp0mNRLa3pR13i8_shyHgNduXkAC2LirUCGIjmSCdz-ynvGfAGJ6A2HBT3FQ8uVC_eGpg1ewlC_adTbNkPo52JjQpsekDzTnn3-HANiN_hc8bKyz-Su9xrc4BQQ1lfrv3teE";
 
-export function LandingHeroSection({ content }: LandingHeroSectionProps) {
+export const LandingHeroSection = ({ content }: LandingHeroSectionProps) => {
+  const [titleBeforeHighlight, titleAfterHighlight = ""] = content.title.split("PhamTien");
+
   return (
-    <section className="relative mt-4 overflow-hidden rounded-2xl border border-border/70 bg-card shadow-2xl shadow-black/10 sm:mt-6 sm:rounded-3xl">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImageUrl})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/96 via-background/80 to-background/35 sm:bg-gradient-to-r sm:from-background sm:via-background/82 sm:to-background/20" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+    <header className="relative flex min-h-screen items-center overflow-hidden pt-24">
+      <div className="absolute inset-0">
+        <img alt="" className="h-full w-full object-cover" src={heroImageUrl} />
+        <div className="absolute inset-0 z-10 bg-white/20 dark:bg-black/60" />
+        <div className="to-background absolute inset-0 z-20 bg-gradient-to-b from-transparent" />
+      </div>
 
-      <div className="relative grid min-h-[540px] gap-6 p-5 sm:min-h-[620px] sm:p-8 lg:min-h-[680px] lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:p-10">
-        <div className="max-w-3xl self-center py-6 sm:py-12">
-          <p className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">
-            {content.eyebrow}
-          </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-            {content.title}
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+      <div className="relative z-30 mx-auto w-full max-w-[1440px] px-8">
+        <div className="max-w-4xl">
+          <div className="border-primary/30 bg-primary/10 text-primary mb-6 inline-flex rounded-full border px-4 py-1">
+            <span className="font-display text-sm font-semibold tracking-widest uppercase">
+              {content.eyebrow}
+            </span>
+          </div>
+          <h1 className="font-display mb-8 max-w-4xl text-[32px] leading-[1.2] font-extrabold text-[var(--media-foreground)] uppercase md:text-7xl md:leading-[1.1]">
+            {titleBeforeHighlight}
+            <span className="text-primary italic">PhamTien</span>
+            {titleAfterHighlight}
+          </h1>
+          <p className="text-muted-foreground mb-10 max-w-2xl text-lg leading-[1.6]">
             {content.description}
           </p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg">
+          <div className="flex flex-col gap-6 sm:flex-row">
+            <Button
+              asChild
+              className="neon-glow-primary h-auto rounded-full px-10 py-5 font-bold tracking-widest uppercase hover:scale-105"
+              size="lg"
+            >
               <a href={content.primaryAction.href}>
                 {content.primaryAction.label}
                 <ArrowRight className="size-4" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="secondary">
+            <Button
+              asChild
+              className="border-border text-foreground hover:bg-muted/50 h-auto rounded-full px-10 py-5 font-bold tracking-widest uppercase"
+              size="lg"
+              variant="outline"
+            >
               <a href={content.secondaryAction.href}>{content.secondaryAction.label}</a>
             </Button>
           </div>
-
-          <div className="mt-7 flex flex-wrap gap-2.5 sm:gap-3">
-            {content.highlights.map((highlight, index) => {
-              const Icon = highlightIcons[index] ?? Sparkles;
-
-              return (
-                <div
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-background/70 px-3 py-2 text-sm shadow-lg shadow-black/10 backdrop-blur sm:px-4"
-                  key={highlight}
-                >
-                  <Icon className="text-primary size-4" />
-                  <span>{highlight}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="grid gap-4 self-end">
-          <Card className="border-primary/25 bg-background/72 shadow-xl shadow-black/20 backdrop-blur-xl">
-            <CardContent className="p-6">
-              <p className="text-primary text-sm font-medium">{content.announcement}</p>
-            </CardContent>
-          </Card>
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            {content.metrics.map((metric) => (
-              <Card
-                className="border-white/10 bg-background/72 shadow-xl shadow-black/20 backdrop-blur-xl"
-                key={metric.label}
-              >
-                <CardContent className="p-6">
-                  <p className="text-primary text-3xl font-semibold tracking-tight">
-                    {metric.value}
-                  </p>
-                  <p className="mt-2 text-base font-medium">{metric.label}</p>
-                  <p className="text-muted-foreground mt-2 text-sm leading-6">
-                    {metric.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
         </div>
       </div>
-    </section>
+
+      <div className="text-primary absolute bottom-10 left-1/2 hidden -translate-x-1/2 animate-bounce sm:block">
+        <ArrowDown aria-label={content.announcement} className="size-9" />
+      </div>
+    </header>
   );
-}
+};

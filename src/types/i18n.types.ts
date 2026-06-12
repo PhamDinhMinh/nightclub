@@ -15,6 +15,16 @@ export interface TranslationCardItem {
   description: string;
 }
 
+export interface TranslationEventCard extends TranslationCardItem {
+  eyebrow: string;
+  actionLabel: string;
+}
+
+export interface TranslationGalleryItem {
+  alt: string;
+  src: string;
+}
+
 export interface TranslationMetric {
   value: string;
   label: string;
@@ -45,6 +55,67 @@ export interface AppMessages {
       light: string;
       dark: string;
     };
+    menu: {
+      open: string;
+      close: string;
+    };
+  };
+  screens: {
+    events: {
+      featuredLabel: string;
+      featuredDate: string;
+      featuredDescription: string;
+      primaryAction: string;
+      secondaryAction: string;
+      heading: string;
+      description: string;
+      filters: string[];
+      cards: Array<{
+        month: string;
+        tag: string;
+        title: string;
+        description: string;
+        artist: string;
+        action: string;
+      }>;
+    };
+    gallery: {
+      title: string;
+      description: string;
+      filters: string[];
+      items: Array<{
+        meta: string;
+        title: string;
+      }>;
+    };
+    booking: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      packageTitle: string;
+      drinkTitle: string;
+      detailsTitle: string;
+      packages: Array<{
+        description: string;
+      }>;
+      fieldLabels: {
+        date: string;
+        guests: string;
+        table: string;
+        requests: string;
+      };
+      guestOptions: string[];
+      placeholders: {
+        table: string;
+        requests: string;
+      };
+      submit: string;
+      mapTitle: string;
+      availability: string;
+      legends: string[];
+      policiesTitle: string;
+      policies: string[];
+    };
   };
   landing: {
     hero: TranslationSectionContent & {
@@ -58,9 +129,18 @@ export interface AppMessages {
       items: TranslationCardItem[];
     };
     processSection: TranslationSectionContent & {
-      items: TranslationCardItem[];
+      primaryEvent: {
+        badge: string;
+        title: string;
+        genre: string;
+        artist: string;
+        imageAlt: string;
+      };
+      items: TranslationEventCard[];
+      actionLabel: string;
     };
     showcaseSection: TranslationSectionContent & {
+      imageAlt: string;
       items: TranslationCardItem[];
     };
     ctaSection: {
@@ -68,17 +148,21 @@ export interface AppMessages {
       description: string;
       primaryAction: TranslationAction;
       secondaryAction: TranslationAction;
+      items: TranslationGalleryItem[];
     };
     footer: {
       tagline: string;
       addressLabel: string;
       address: string;
+      mapQuery: string;
       hoursLabel: string;
       hours: string;
       contactLabel: string;
       contact: string;
       quickLinksLabel: string;
+      quickLinks: TranslationNavItem[];
       mapTitle: string;
+      madeWith: string;
       copyright: string;
     };
   };

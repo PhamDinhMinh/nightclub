@@ -1,4 +1,4 @@
-import { Clock, MapPin, Martini, Phone } from "lucide-react";
+import { Megaphone, PlayCircle } from "lucide-react";
 import type { AppMessages } from "@/types/i18n.types";
 
 interface LandingFooterProps {
@@ -6,82 +6,103 @@ interface LandingFooterProps {
   navigation: AppMessages["navigation"];
 }
 
-const mapSrc =
-  "https://www.google.com/maps?q=Ph%E1%BA%A1m%20Ti%E1%BA%BFn%20h%E1%BB%99p%20%C4%91%C3%AAm%2C%20Ng%E1%BB%8Dc%20Nh%E1%BB%8B%2C%20Qu%E1%BA%A3ng%20X%C6%B0%C6%A1ng%2C%20Thanh%20H%C3%B3a%2C%20Vi%E1%BB%87t%20Nam&z=18&output=embed";
+const logoUrl = "https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg";
 
-export function LandingFooter({ content, navigation }: LandingFooterProps) {
+export const LandingFooter = ({ content, navigation }: LandingFooterProps) => {
+  const mapQuery = encodeURIComponent(content.mapQuery);
+  const mapSrc = `https://www.google.com/maps?q=${mapQuery}&z=17&output=embed`;
+  const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
   return (
-    <footer className="mt-8 overflow-hidden rounded-3xl border border-border/70 bg-card shadow-xl shadow-black/5">
-      <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="p-6 sm:p-8 lg:p-10">
-          <div className="flex items-center gap-3">
-            <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
-              <Martini className="size-5" />
-            </span>
-            <div>
-              <p className="text-xl font-bold tracking-tight">
-                {navigation.brand}
-                <span className="text-primary">.</span>
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">{content.tagline}</p>
+    <footer className="bg-muted border-border w-full border-t dark:bg-[#0e0e0e]">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-6 px-8 py-20 md:grid-cols-3">
+        <div>
+          <div className="mb-6 flex items-center gap-3">
+            <img alt="" className="h-8 w-auto" src={logoUrl} />
+            <div className="font-display text-primary text-3xl leading-none font-semibold">
+              {navigation.brand}
             </div>
           </div>
-
-          <div className="mt-8 grid gap-4">
-            <div className="flex gap-3">
-              <MapPin className="mt-1 size-5 shrink-0 text-primary" />
-              <div>
-                <p className="text-sm font-semibold">{content.addressLabel}</p>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">{content.address}</p>
-              </div>
-            </div>
-
-            <div className="flex gap-3">
-              <Clock className="mt-1 size-5 shrink-0 text-primary" />
-              <div>
-                <p className="text-sm font-semibold">{content.hoursLabel}</p>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">{content.hours}</p>
-              </div>
-            </div>
-
-            <div className="flex gap-3">
-              <Phone className="mt-1 size-5 shrink-0 text-primary" />
-              <div>
-                <p className="text-sm font-semibold">{content.contactLabel}</p>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">{content.contact}</p>
-              </div>
-            </div>
+          <p className="text-muted-foreground mb-8 max-w-xs leading-7">{content.tagline}</p>
+          <div className="mt-8 flex gap-4">
+            <a
+              aria-label={navigation.brand}
+              className="border-border text-foreground hover:border-primary hover:text-primary grid size-10 place-items-center rounded-full border transition-all"
+              href="#top"
+            >
+              <Megaphone className="size-4" />
+            </a>
+            <a
+              aria-label={navigation.navItems[1]?.label ?? navigation.brand}
+              className="border-border text-foreground hover:border-primary hover:text-primary grid size-10 place-items-center rounded-full border transition-all"
+              href="#events"
+            >
+              <PlayCircle className="size-4" />
+            </a>
           </div>
+        </div>
 
-          <div className="mt-8">
-            <p className="text-sm font-semibold">{content.quickLinksLabel}</p>
-            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-              {navigation.navItems.map((item) => (
+        <div>
+          <h2 className="font-display text-primary mb-6 text-sm font-semibold tracking-widest uppercase">
+            {content.quickLinksLabel}
+          </h2>
+          <ul className="space-y-4">
+            {content.quickLinks.map((item) => (
+              <li key={item.label}>
                 <a
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                   href={item.href}
-                  key={item.href}
                 >
                   {item.label}
                 </a>
-              ))}
-            </div>
-          </div>
-
-          <p className="mt-8 text-xs text-muted-foreground">© {content.copyright}</p>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="min-h-80 border-t border-border/70 bg-muted lg:min-h-full lg:border-t-0 lg:border-l">
-          <iframe
-            allowFullScreen
-            className="h-full min-h-80 w-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            src={mapSrc}
-            title={content.mapTitle}
-          />
+        <div>
+          <h2 className="font-display text-primary mb-6 text-sm font-semibold tracking-widest uppercase">
+            {content.addressLabel}
+          </h2>
+          <p className="text-muted-foreground mb-2 leading-7">{content.address}</p>
+          <p className="text-muted-foreground mb-6 leading-7">{content.contact}</p>
+          <div className="bg-card border-border/30 rounded-lg border p-4">
+            <p className="font-display text-foreground mb-2 text-sm font-semibold italic dark:text-white">
+              {content.hoursLabel}
+            </p>
+            <p className="text-muted-foreground text-sm">{content.hours}</p>
+          </div>
+          <div className="border-border/30 bg-card mt-4 overflow-hidden rounded-lg border">
+            <iframe
+              allowFullScreen
+              className="h-48 w-full grayscale dark:invert-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src={mapSrc}
+              title={content.mapTitle}
+            />
+          </div>
+          <a
+            className="text-primary hover:text-secondary mt-3 inline-flex text-sm font-semibold transition-colors"
+            href={mapLink}
+            rel="noreferrer"
+            target="_blank"
+          >
+            {content.mapTitle}
+          </a>
+        </div>
+      </div>
+
+      <div className="border-border border-t px-8 py-8">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-4 md:flex-row">
+          <p className="font-display text-muted-foreground text-xs font-semibold tracking-widest uppercase">
+            © {content.copyright}
+          </p>
+          <p className="font-display text-muted-foreground/60 text-xs font-semibold tracking-widest uppercase">
+            {content.madeWith}
+          </p>
         </div>
       </div>
     </footer>
   );
-}
+};

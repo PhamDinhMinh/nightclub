@@ -1,53 +1,60 @@
-import { Languages, MoonStar, Store } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Eye, Volume2, Wine } from "lucide-react";
 import type { AppMessages } from "@/types/i18n.types";
-import { LandingSection } from "@/features/landing/components/landing-section";
 
 interface LandingShowcaseSectionProps {
   content: AppMessages["landing"]["showcaseSection"];
 }
 
-const showcaseIcons = [MoonStar, Store, Languages];
-const showcaseImages = [
-  "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1605270012917-bf157c5a9541?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=900&q=85",
-];
+const ethosImageUrl =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuDae9ui1FDFOjvqDqkGUxrAcotA7sNIrJaVhHgSBf5FOt16uKDusr-boEPlCMc5r_PS8RnaqQHf1cav67aLzc6d5f1kP3kQ3ncNFyjGfkdkr56xD8A_vU4SoCVgIORk8UA8daJiZSlEm1TuoRuffsO07F29wxV6Ew_BjgTP0hf-uMMgwtK7nVOuVjwFnxGUI5grczmJ1pcUta1wz_LXCxpKugVizajBYVaFv3FjCoN73mEV8TLtZ_b3_DfYVyUfUcnQVqmuOps9b50";
 
-export function LandingShowcaseSection({ content }: LandingShowcaseSectionProps) {
+const ethosIcons = [Volume2, Eye, Wine];
+
+export const LandingShowcaseSection = ({ content }: LandingShowcaseSectionProps) => {
   return (
-    <LandingSection
-      description={content.description}
-      eyebrow={content.eyebrow}
-      id="menu"
-      title={content.title}
-    >
-      <div className="grid gap-4 xl:grid-cols-3">
-        {content.items.map((item, index) => {
-          const Icon = showcaseIcons[index] ?? MoonStar;
+    <section className="bg-muted relative overflow-hidden py-[120px] dark:bg-[#0e0e0e]" id="space">
+      <div className="bg-primary/10 absolute -top-24 -left-24 h-96 w-96 rounded-full blur-[100px]" />
+      <div className="bg-secondary/10 absolute -right-24 -bottom-24 h-96 w-96 rounded-full blur-[100px]" />
 
-          return (
-            <Card
-              className="border-border/70 bg-card overflow-hidden shadow-lg shadow-black/5"
-              key={item.title}
-            >
-              <CardContent
-                className="relative flex min-h-80 items-end overflow-hidden bg-cover bg-center p-0"
-                style={{ backgroundImage: `url(${showcaseImages[index]})` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-                <div className="relative p-6 text-white">
-                  <div className="inline-flex rounded-2xl bg-white/15 p-3 text-white backdrop-blur">
-                    <Icon className="size-5" />
+      <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-20 px-8 md:grid-cols-2">
+        <div className="group relative">
+          <div className="bg-primary/20 group-hover:bg-primary/30 absolute -inset-4 rounded-2xl blur-xl transition-all" />
+          <img
+            alt={content.imageAlt}
+            className="relative z-10 aspect-square w-full rounded-xl object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+            src={ethosImageUrl}
+          />
+        </div>
+
+        <div>
+          <span className="font-display text-primary block text-sm font-semibold tracking-widest uppercase">
+            {content.eyebrow}
+          </span>
+          <h2 className="font-display mt-6 text-[32px] leading-[1.2] font-bold text-[var(--media-foreground)] uppercase md:text-5xl">
+            {content.title}
+          </h2>
+
+          <div className="mt-8 space-y-6">
+            {content.items.map((item, index) => {
+              const Icon = ethosIcons[index] ?? Volume2;
+
+              return (
+                <div className="flex gap-4" key={item.title}>
+                  <div className="border-border/30 bg-card grid size-12 shrink-0 place-items-center rounded-lg border">
+                    <Icon className="text-primary size-5" />
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold tracking-tight">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-white/76">{item.description}</p>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-[var(--media-foreground)]">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground mt-1 leading-7">{item.description}</p>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
-          );
-        })}
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </LandingSection>
+    </section>
   );
-}
+};
