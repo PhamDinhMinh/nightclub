@@ -13,23 +13,23 @@ const heroImageUrl =
 
 export function LandingHeroSection({ content }: LandingHeroSectionProps) {
   return (
-    <section className="relative mt-6 overflow-hidden rounded-3xl border border-border/70 bg-card shadow-2xl shadow-black/10">
+    <section className="relative mt-4 overflow-hidden rounded-2xl border border-border/70 bg-card shadow-2xl shadow-black/10 sm:mt-6 sm:rounded-3xl">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImageUrl})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/82 to-background/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/96 via-background/80 to-background/35 sm:bg-gradient-to-r sm:from-background sm:via-background/82 sm:to-background/20" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="relative grid min-h-[560px] gap-6 p-5 sm:min-h-[620px] sm:p-8 lg:min-h-[680px] lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:p-10">
-        <div className="max-w-3xl self-center py-8 sm:py-12">
+      <div className="relative grid min-h-[540px] gap-6 p-5 sm:min-h-[620px] sm:p-8 lg:min-h-[680px] lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:p-10">
+        <div className="max-w-3xl self-center py-6 sm:py-12">
           <p className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">
             {content.eyebrow}
           </p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
             {content.title}
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
             {content.description}
           </p>
 
@@ -45,13 +45,13 @@ export function LandingHeroSection({ content }: LandingHeroSectionProps) {
             </Button>
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-wrap gap-2.5 sm:gap-3">
             {content.highlights.map((highlight, index) => {
               const Icon = highlightIcons[index] ?? Sparkles;
 
               return (
                 <div
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-background/70 px-4 py-2 text-sm shadow-lg shadow-black/10 backdrop-blur"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-background/70 px-3 py-2 text-sm shadow-lg shadow-black/10 backdrop-blur sm:px-4"
                   key={highlight}
                 >
                   <Icon className="text-primary size-4" />

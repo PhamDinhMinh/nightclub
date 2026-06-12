@@ -1,38 +1,42 @@
 "use client";
 
-import type { Locale } from "@/types/i18n.types";
 import { useTranslation } from "@/hooks/use-translation";
-import { Button } from "@/components/ui/button";
-
-const localeOrder: Locale[] = ["en", "vi"];
+import { cn } from "@/lib/utils";
 
 export function LanguageSwitcher() {
   const { locale, messages, setLocale } = useTranslation();
+  const isVietnamese = locale === "vi";
 
   return (
-    <div
+    <button
       aria-label={messages.controls.languageSwitcherLabel}
-      className="bg-muted/70 inline-flex rounded-full p-1"
-      role="group"
+      aria-pressed={isVietnamese}
+      className="bg-muted/70 hover:bg-muted relative inline-grid h-9 w-20 grid-cols-2 items-center rounded-full p-1 text-xs font-bold transition-colors duration-300 outline-none focus-visible:ring-2 focus-visible:ring-ring/60 active:scale-[0.98]"
+      onClick={() => setLocale(isVietnamese ? "en" : "vi")}
+      type="button"
     >
-      {localeOrder.map((localeItem) => {
-        const isActive = localeItem === locale;
-
-        return (
-          <Button
-            aria-pressed={isActive}
-            aria-label={messages.controls.languages[localeItem]}
-            className="h-8 rounded-full px-3 text-xs"
-            key={localeItem}
-            onClick={() => setLocale(localeItem)}
-            size="sm"
-            type="button"
-            variant={isActive ? "default" : "ghost"}
-          >
-            {localeItem.toUpperCase()}
-          </Button>
-        );
-      })}
-    </div>
+      <span
+        className={cn(
+          "bg-primary absolute top-1 left-1 h-7 w-9 rounded-full shadow-sm shadow-primary/20 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          isVietnamese && "translate-x-9",
+        )}
+      />
+      <span
+        className={cn(
+          "relative z-10 text-center transition-colors duration-200",
+          !isVietnamese ? "text-primary-foreground" : "text-muted-foreground",
+        )}
+      >
+        EN
+      </span>
+      <span
+        className={cn(
+          "relative z-10 text-center transition-colors duration-200",
+          isVietnamese ? "text-primary-foreground" : "text-muted-foreground",
+        )}
+      >
+        VI
+      </span>
+    </button>
   );
 }
